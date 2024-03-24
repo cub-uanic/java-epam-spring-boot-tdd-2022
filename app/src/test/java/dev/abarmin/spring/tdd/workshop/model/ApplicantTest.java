@@ -1,7 +1,5 @@
 package dev.abarmin.spring.tdd.workshop.model;
 
-import java.util.Set;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Path;
 import jakarta.validation.Validator;
@@ -11,12 +9,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Aleksandr Barmin
@@ -30,23 +27,19 @@ class ApplicantTest {
     @Test
     @DisplayName("Person should not be null")
     void personShouldNotBeNull() {
-        final Applicant applicant = Applicant.builder()
-                .build();
+        final Applicant applicant = Applicant.builder().build();
 
         final Set<ConstraintViolation<Applicant>> violations = validator.validate(applicant);
 
         assertThat(violations)
+                .withFailMessage("Violations should not be null")
                 .isNotNull()
-                .withFailMessage("Violations should not be null");
 
-        assertThat(violations)
+                .withFailMessage("There should be a violation")
                 .isNotEmpty()
-                .withFailMessage("There should be a violation");
 
-        assertThat(violations)
                 .anySatisfy(v -> {
-                    final Path propertyPath = v.getPropertyPath();
-                    assertThat(propertyPath)
+                    assertThat(v.getPropertyPath())
                             .anySatisfy(path -> {
                                 assertThat(path.getName())
                                         .isEqualTo("person");
@@ -56,22 +49,20 @@ class ApplicantTest {
 
     @Test
     void personNameShouldNotBeNull() {
-        final Applicant applicant = Applicant.builder()
-                .person(Person.builder().build())
-                .build();
+        final Applicant applicant = Applicant.builder().person(Person.builder().build()).build();
 
         final Set<ConstraintViolation<Applicant>> violations = validator.validate(applicant);
 
         assertThat(violations)
                 .withFailMessage("Violations should not be empty")
+                .isNotEmpty()
+
                 .anySatisfy(v -> {
-                    final Path propertyPath = v.getPropertyPath();
-                    assertThat(propertyPath)
+                    assertThat(v.getPropertyPath())
                             .anySatisfy(path -> {
                                 assertThat(path.getName())
                                         .isEqualTo("personName");
                             });
-                })
-                .isNotEmpty();
+                });
     }
 }

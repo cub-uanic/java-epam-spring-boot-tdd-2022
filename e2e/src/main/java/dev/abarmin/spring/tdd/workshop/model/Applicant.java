@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Applicant {
-  private Long applicantId;
-  private Person person;
-  private ContactPoint contactPoint;
+    private Long applicantId;
+    private Person person;
+    private ContactPoint contactPoint;
 }

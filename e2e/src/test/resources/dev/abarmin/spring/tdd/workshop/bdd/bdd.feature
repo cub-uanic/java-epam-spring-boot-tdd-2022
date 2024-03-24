@@ -1,4 +1,5 @@
 Feature: the applicant can be created
+
   Scenario: Create a bank account for new to bank applicant
     Given an applicant with email test@test.com is new to bank
     When an applicant provides test@test.com email

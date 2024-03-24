@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactPoint {
-  private ElectronicAddress electronicAddress;
+    private ElectronicAddress electronicAddress;
 }

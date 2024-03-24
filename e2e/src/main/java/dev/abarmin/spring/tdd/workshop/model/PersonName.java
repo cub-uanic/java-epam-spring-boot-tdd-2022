@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonName {
-  private String firstName;
-  private String lastName;
-  private String middleName;
+    private String firstName;
+    private String lastName;
+    private String middleName;
 }

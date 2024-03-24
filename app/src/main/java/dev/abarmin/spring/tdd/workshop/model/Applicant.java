@@ -1,7 +1,5 @@
 package dev.abarmin.spring.tdd.workshop.model;
 
-import java.util.UUID;
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,17 +20,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Applicant {
-  @Id
-  @GeneratedValue
-  private Long applicantId;
+    @Id
+    @GeneratedValue
+    private Long applicantId;
 
-  @Valid
-  @NotNull
-  @Embedded
-  private Person person;
+    @Valid
+    @NotNull
+    @Embedded
+    private Person person;
 
-  @Valid
-  @NotNull
-  @Embedded
-  private ContactPoint contactPoint;
+    @Valid
+    @NotNull
+    @Embedded
+    private ContactPoint contactPoint;
 }

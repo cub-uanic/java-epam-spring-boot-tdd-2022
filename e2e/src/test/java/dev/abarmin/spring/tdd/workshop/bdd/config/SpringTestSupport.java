@@ -6,7 +6,6 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -14,18 +13,18 @@ import org.springframework.web.client.RestTemplate;
  */
 @CucumberContextConfiguration
 public class SpringTestSupport {
-  @Configuration
-  @ComponentScan(basePackageClasses = ApplicantService.class)
-  public static class SpringConfiguration {
-    @Bean
-    public RestTemplate restTemplate() {
-      return new RestTemplateBuilder().build();
-    }
+    @Configuration
+    @ComponentScan(basePackageClasses = ApplicantService.class)
+    public static class SpringConfiguration {
+        @Bean
+        public RestTemplate restTemplate() {
+            return new RestTemplateBuilder().build();
+        }
 
-    @Bean
-    @BaseUrl
-    public String baseUrl() {
-      return "http://localhost:8080";
+        @Bean
+        @BaseUrl
+        public String baseUrl() {
+            return "http://localhost:8080";
+        }
     }
-  }
 }

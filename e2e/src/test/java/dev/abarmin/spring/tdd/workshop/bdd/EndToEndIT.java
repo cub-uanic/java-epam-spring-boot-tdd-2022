@@ -13,8 +13,8 @@ import org.junit.platform.suite.api.Suite;
 @Testable
 @IncludeEngines("cucumber")
 @CucumberOptions(glue = {
-    "dev.abarmin.spring.tdd.workshop.bdd.config",
-    "dev.abarmin.spring.tdd.workshop.bdd.stepdefs"
+        "dev.abarmin.spring.tdd.workshop.bdd.config",
+        "dev.abarmin.spring.tdd.workshop.bdd.stepdefs"
 })
 @SelectClasspathResource("dev/abarmin/spring/tdd/workshop/bdd/bdd.feature")
 public class EndToEndIT {
