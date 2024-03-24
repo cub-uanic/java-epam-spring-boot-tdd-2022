@@ -1,12 +1,10 @@
 package dev.abarmin.spring.tdd.workshop.model;
 
-import javax.persistence.Embedded;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 /**
  * @author Aleksandr Barmin
@@ -15,9 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Person {
-  @Valid
-  @NotNull
-  @Embedded
-  private PersonName personName;
+    @Embedded
+    @Valid
+    @NotNull
+    PersonName personName;
 }

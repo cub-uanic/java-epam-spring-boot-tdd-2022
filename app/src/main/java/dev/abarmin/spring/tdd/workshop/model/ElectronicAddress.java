@@ -1,6 +1,7 @@
 package dev.abarmin.spring.tdd.workshop.model;
 
-import javax.validation.constraints.Email;
+import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class ElectronicAddress {
-  @Email
-  private String email;
+    @Email
+    String email;
 }
